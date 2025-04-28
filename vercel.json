@@ -1,8 +1,0 @@
-{
-  "build": {
-    "ignoreCommand": "pnpm approve-builds",
-    "env": {
-      "NEXT_DISABLE_ESLINT": "true"
-    }
-  }
-}
