@@ -45,6 +45,7 @@ export const createCertificate=async(formData: FormData)=> {
     });
 
     revalidatePath('/dashboard/certificate');
+    revalidatePath('/about');
     return getCertificates();
   } catch (error) {
     console.error('Create certificate error:', error);
@@ -127,6 +128,7 @@ export const updateCertificate=async(id: string, formData: FormData)=> {
       
     }
     revalidatePath('/dashboard/certificate');
+    revalidatePath('/about');
     return getCertificates();
   } catch (error) {
     return { error: 'Failed to update certificate' };
@@ -155,6 +157,7 @@ export const deleteCertificate=async(id: string)=> {
     }
 
     revalidatePath('/dashboard/certificate');
+    revalidatePath('/about');
     return getCertificates();
   } catch (error) {
     return { error: 'Failed to delete certificate' };

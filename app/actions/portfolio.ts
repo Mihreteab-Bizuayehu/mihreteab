@@ -43,6 +43,7 @@ export const createPortfolio = async (data: FormData) => {
     }
 
     revalidatePath('/dashboard/portfolio');
+    revalidatePath('/');
     return getPortfolios();
   } catch (error) {
     return { error: 'Failed to create portfolio' };
@@ -123,6 +124,7 @@ export const updatePortfolio = async (id: string, data: FormData) => {
     }
 
      revalidatePath('/dashboard/portfolio');
+     revalidatePath('/');
      return getPortfolios();
   } catch (error) {
     return { error: 'Failed to update portfolio' };
@@ -143,6 +145,8 @@ export const deletePortfolio = async (id: string) => {
       }
     }
     revalidatePath('/dashboard/portfolio');
+    revalidatePath('/');
+    return getPortfolios();
   } catch (error) {
     return { error: 'Failed to delete portfolio' };
   }

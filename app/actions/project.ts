@@ -44,6 +44,8 @@ export const createProject = async (data: FormData) => {
     }
 
     revalidatePath('/dashboard/project');
+    revalidatePath('/');
+    revalidatePath('/project/:id');
     return getProjects;
   } catch (error) {
     return { error: 'Failed to create project' };
@@ -127,6 +129,8 @@ export const updateProject = async (id: string, data: FormData) => {
       }
     }
     revalidatePath('/dashboard/project');
+    revalidatePath('/');
+    revalidatePath('/project/:id');
     return getProjects();
   } catch (error) {
     return { error: 'Failed to update project' };
@@ -147,6 +151,8 @@ export const deleteProject = async (id: string) => {
       }
     }
     revalidatePath('/dashboard/project');
+    revalidatePath('/');
+    revalidatePath('/project/:id');
     return getProjects();
   } catch (error) {
     return { error: 'Failed to delete project' };
