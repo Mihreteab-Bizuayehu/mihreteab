@@ -45,7 +45,8 @@ export const createPortfolio = async (data: FormData) => {
     revalidatePath('/dashboard/portfolio');
     revalidatePath('/');
     return getPortfolios();
-  } catch (error) {
+  } catch (error: any) {
+    console.log("Create Portfolio Error:",error);
     return { error: 'Failed to create portfolio' };
   }
 }
@@ -56,7 +57,8 @@ export const getPortfolios = async () => {
       orderBy: { createdAt: 'desc' },
     });
     return portfolios;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Get portfolios error:', error);
     return { error: 'Failed to get portfolios' };
   }
 }
@@ -70,7 +72,8 @@ export const getPortfolio = async (id: string) => {
       return notFound();
     }
     return portfolio;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Get portfolio error:', error);
     return { error: 'Failed to get project' };
   } 
 }
@@ -126,7 +129,8 @@ export const updatePortfolio = async (id: string, data: FormData) => {
      revalidatePath('/dashboard/portfolio');
      revalidatePath('/');
      return getPortfolios();
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Update portfolio error:', error);
     return { error: 'Failed to update portfolio' };
   }
 }
@@ -147,7 +151,8 @@ export const deletePortfolio = async (id: string) => {
     revalidatePath('/dashboard/portfolio');
     revalidatePath('/');
     return getPortfolios();
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Delete portfolio error:', error);
     return { error: 'Failed to delete portfolio' };
   }
 }

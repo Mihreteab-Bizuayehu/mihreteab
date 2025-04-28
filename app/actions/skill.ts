@@ -22,7 +22,8 @@ export const createSkill = async (data: FormData) => {
     });
     revalidatePath('/dashboard/skill');
     return getSkills();
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error creating skill:', error);
     return { error: 'Failed to create skill' };
   }
 }
@@ -33,7 +34,8 @@ export const getSkills = async () => {
       orderBy: { createdAt: 'desc' },
     });
     return skills;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Get skills error:', error);
     return { error: 'Failed to get skills' };
   }
 }
@@ -47,7 +49,8 @@ export const getSkill = async (id: string) => {
       return notFound();
     }
     return skill;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Get skill error:', error);
     return { error: 'Failed to get skill' };
   }
 }
@@ -81,7 +84,8 @@ export const updateSkill = async (id: string, data: FormData) => {
     }
     revalidatePath('/dashboard/skill');
     return getSkills();
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error updating skill:', error);
     return { error: 'Failed to update skill' };
   }
 }
@@ -100,7 +104,8 @@ export const deleteSkill = async (id: string) => {
     }
     revalidatePath('/dashboard/skill');
     return getSkills();
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Error deleting skill:', error);
     return { error: 'Failed to delete skill' };
   }
 }

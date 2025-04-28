@@ -26,7 +26,9 @@ export default async function Home() {
       <div className="bg-gray-50 flex flex-col-reverse sm:flex-row dark:bg-gray-950 dark:text-white  w-full sm:h-[70vh] gap-4 items-center justify-between px-3 sm:px-10">
         <section className="flex flex-col items-center sm:w-1/2">
           <div className="flex flex-col gap-2 mb-5">
-            <h1 className="text-2xl font-bold">Hi, I'm Mihreteab Bizuayehu</h1>
+            <h1 className="text-2xl font-bold">
+              Hi, I&apos;m Mihreteab Bizuayehu
+            </h1>
             <h3 className="text-lg font-semibold">
               Full Stack Developer | MERN Stack, Next.js & React Native
             </h3>

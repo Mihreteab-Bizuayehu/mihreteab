@@ -19,7 +19,9 @@ export default async function About() {
         <div className="flex flex-col-reverse sm:flex-row   w-full sm:h-[70vh] gap-4 items-center justify-between px-3 sm:px-10">
           <section className="flex flex-col items-center sm:w-1/2">
             <div className="flex flex-col gap-2 mb-5">
-              <h1 className="text-2xl font-bold">I'm Mihreteab Bizuayehu</h1>
+              <h1 className="text-2xl font-bold">
+                I&apos;m Mihreteab Bizuayehu
+              </h1>
               <p className="text-sm text-gray-700 dark:text-gray-200">
                 I am a passionate and results-driven Full Stack Developer with a
                 BSc Degree in Computer Engineering from Bahir Dar University,

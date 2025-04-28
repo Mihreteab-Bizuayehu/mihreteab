@@ -47,7 +47,8 @@ export const createProject = async (data: FormData) => {
     revalidatePath('/');
     revalidatePath('/project/:id');
     return getProjects;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Create project error:', error);
     return { error: 'Failed to create project' };
   }
 };
@@ -58,7 +59,8 @@ export const getProjects = async () => {
       orderBy: { createdAt: 'desc' },
     });
     return projects;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Get projects error:', error);
     return { error: 'Failed to get projects' };
   }
 };
@@ -72,7 +74,8 @@ export const getProject = async (id: string) => {
       return notFound();
     }
     return project;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Get project error:', error);
     return { error: 'Failed to get project' };
   }
 };
@@ -132,7 +135,8 @@ export const updateProject = async (id: string, data: FormData) => {
     revalidatePath('/');
     revalidatePath('/project/:id');
     return getProjects();
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Update project error:', error);
     return { error: 'Failed to update project' };
   }
 };
@@ -154,7 +158,8 @@ export const deleteProject = async (id: string) => {
     revalidatePath('/');
     revalidatePath('/project/:id');
     return getProjects();
-  } catch (error) {
+  } catch (error: any) {
+    console.error("Delete project error:", error);
     return { error: 'Failed to delete project' };
   }
 };

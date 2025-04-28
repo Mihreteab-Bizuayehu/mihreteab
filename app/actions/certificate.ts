@@ -47,7 +47,7 @@ export const createCertificate=async(formData: FormData)=> {
     revalidatePath('/dashboard/certificate');
     revalidatePath('/about');
     return getCertificates();
-  } catch (error) {
+  } catch (error: any) {
     console.error('Create certificate error:', error);
     return { error: 'Failed to create certificate' };
   }
@@ -59,7 +59,8 @@ export const getCertificates=async()=> {
       orderBy: { createdAt: 'desc' },
     });
     return certificates;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Get certificates error:', error);
     return { error: 'Failed to get certificates' };
   }
 }
@@ -73,7 +74,8 @@ export const getCertificate=async(id: string)=> {
       return notFound();
     }
     return certificate;
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Get certificate error:', error);
     return { error: 'Failed to get certificate' };
   }
 }
@@ -130,7 +132,8 @@ export const updateCertificate=async(id: string, formData: FormData)=> {
     revalidatePath('/dashboard/certificate');
     revalidatePath('/about');
     return getCertificates();
-  } catch (error) {
+  } catch (error: any) {
+    console.error("Update certificate error:", error);
     return { error: 'Failed to update certificate' };
   }
 }
@@ -159,7 +162,8 @@ export const deleteCertificate=async(id: string)=> {
     revalidatePath('/dashboard/certificate');
     revalidatePath('/about');
     return getCertificates();
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Delete certificate error:', error);
     return { error: 'Failed to delete certificate' };
   }
 }
