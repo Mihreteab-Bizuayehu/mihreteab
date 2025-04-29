@@ -1,6 +1,7 @@
 'use client';
 
 import { createSkill, getSkill, updateSkill } from '@/app/actions/skill';
+import Loading from '@/components/loading';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -9,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { SkillFormData, SkillSchema } from '@/lib/validators/SkillSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -85,50 +86,52 @@ export default function CreateSkill() {
 
   return (
     <div className="flex items-center justify-center">
-      <Card className="sm:w-2/3 w-[98%] mx-auto sm:mt-5 mt-20 ">
-        <CardHeader>
-          <CardTitle className="text-2xl font-semibold tracking-wide text-gray-800 dark:text-white">
-            {skillId ? 'Update Skill' : 'Create Skill'}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-4 mx-auto"
-          >
-            <div className="flex flex-col gap-2">
-              <Label>Title</Label>
-              <Input {...register('title')} className="border p-2 w-full" />
-              {errors.title && (
-                <p className="text-red-500">{errors.title.message}</p>
-              )}
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <Label>Description</Label>
-              <Textarea
-                {...register('description')}
-                className="border p-2 w-full"
-              />
-              {errors.description && (
-                <p className="text-red-500">{errors.description.message}</p>
-              )}
-            </div>
-
-            <Button
-              type="submit"
-              disabled={status === 'submitting'}
-              className="bg-blue-600 text-white py-2 px-4 rounded dark:bg-blue-700 dark:hover:bg-blue-900 transition-colors duration-300"
+      <Suspense fallback={<Loading />}>
+        <Card className="sm:w-2/3 w-[98%] mx-auto sm:mt-5 mt-20 ">
+          <CardHeader>
+            <CardTitle className="text-2xl font-semibold tracking-wide text-gray-800 dark:text-white">
+              {skillId ? 'Update Skill' : 'Create Skill'}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col gap-4 mx-auto"
             >
-              {formStatus.pending || status === 'submitting'
-                ? 'Submitting...'
-                : skillId
-                ? 'Update'
-                : 'Submit'}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+              <div className="flex flex-col gap-2">
+                <Label>Title</Label>
+                <Input {...register('title')} className="border p-2 w-full" />
+                {errors.title && (
+                  <p className="text-red-500">{errors.title.message}</p>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Label>Description</Label>
+                <Textarea
+                  {...register('description')}
+                  className="border p-2 w-full"
+                />
+                {errors.description && (
+                  <p className="text-red-500">{errors.description.message}</p>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                disabled={status === 'submitting'}
+                className="bg-blue-600 text-white py-2 px-4 rounded dark:bg-blue-700 dark:hover:bg-blue-900 transition-colors duration-300"
+              >
+                {formStatus.pending || status === 'submitting'
+                  ? 'Submitting...'
+                  : skillId
+                  ? 'Update'
+                  : 'Submit'}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </Suspense>
     </div>
   );
 }
