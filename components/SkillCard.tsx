@@ -16,7 +16,7 @@ export default function FetchSkill({ skill }: { skill: SkillTypes }) {
   return (
     <Card
       key={skill.id}
-      className="mx-auto py-10 hover:transform  hover:scale-105 hover:duration-300 dark:bg-gray-950 dark:text-white"
+      className="mx-auto py-10 hover:transform  hover:scale-105 hover:duration-300 dark:bg-gray-950 dark:text-white flex flex-col gap-2 items-center sm:items-start"
     >
       <CardHeader>
         <CardTitle className="text-lg text-center font-bold">
@@ -30,7 +30,7 @@ export default function FetchSkill({ skill }: { skill: SkillTypes }) {
         <Button
           onClick={() => setClip(clip === '' ? 'line-clamp-8' : '')}
           variant="outline"
-          className="group-hover:bg-primary group-hover:text-white self-center sm:self-start transition-colors duration-300"
+          className="group-hover:bg-primary group-hover:text-white  transition-colors duration-300"
         >
           Read {clip === '' ? 'Less' : 'More'}
         </Button>

@@ -1,6 +1,7 @@
+
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
+  output = "./generator"
 }
 
 datasource db {
@@ -8,7 +9,6 @@ datasource db {
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
-
 model Skill {
   id          Int      @id @default(autoincrement())
   title       String
