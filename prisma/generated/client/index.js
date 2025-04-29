@@ -186,8 +186,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../..",
   "clientVersion": "6.6.0",
@@ -196,11 +195,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres.vztpzlpemsukuuzwmpwg:YKjHItMg327MP01t@aws-0-eu-central-1.pooler.supabase.com:6543/postgres"
+        "value": null
       }
     }
   },

@@ -96,9 +96,11 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
-              <div className="flex flex-col px-4">
+              <div className="flex flex-col gap-4 px-4">
                 <SignedOut>
-                  <SignInButton />
+                  <div>
+                    <SignInButton />
+                  </div>
                 </SignedOut>
                 <SignedIn>
                   {role === 'marketing_admin' ? (
@@ -123,7 +125,7 @@ export default function Navbar() {
             </ul>
           </SheetContent>
         </Sheet>
-        <ModeToggle/>
+        <ModeToggle />
       </nav>
     </header>
   );

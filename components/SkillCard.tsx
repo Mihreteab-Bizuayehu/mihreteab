@@ -30,7 +30,7 @@ export default function FetchSkill({ skill }: { skill: SkillTypes }) {
         <Button
           onClick={() => setClip(clip === '' ? 'line-clamp-8' : '')}
           variant="outline"
-          className="group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+          className="group-hover:bg-primary group-hover:text-white self-center transition-colors duration-300"
         >
           Read {clip === '' ? 'Less' : 'More'}
         </Button>
