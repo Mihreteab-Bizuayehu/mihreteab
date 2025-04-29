@@ -8,8 +8,8 @@ import { Suspense } from "react";
 
 type ProjectResult =ProjectTypes | { error: string } | null;
 
-export default async function Project({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function Project({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const project: ProjectResult = await getProject(id);
 
 if (!project || 'error' in project) {
