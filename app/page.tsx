@@ -24,12 +24,10 @@ export default async function Home() {
   return (
     <div className="flex flex-col justify-center w-[90%] mx-auto items-center">
       <div className="bg-gray-50 flex flex-col-reverse sm:flex-row dark:bg-gray-950 dark:text-white  w-full sm:h-[70vh] gap-4 items-center justify-between px-3 sm:px-10">
-        <section className="flex flex-col items-center sm:w-1/2">
+        <section className="flex flex-col gap-2 mb-5 w-full max-w-2xl">
           <div className="flex flex-col gap-2 mb-5">
-            <h1 className="text-2xl font-bold">
-              Hi, I&apos;m Mihreteab Bizuayehu
-            </h1>
-            <h3 className="text-lg font-semibold">
+            <h1 className="text-balance">Hi, I&apos;m Mihreteab Bizuayehu</h1>
+            <h3 className="text-pretty font-medium tracking-tight">
               Full Stack Developer | MERN Stack, Next.js & React Native
             </h3>
             <p className="text-sm text-gray-700 dark:text-gray-200">
@@ -98,8 +96,7 @@ export default async function Home() {
                   portfolios.map((portfolio) => (
                     <CarouselItem
                       key={portfolio.id}
-                      className="relative w-full sm:w-[80vw] md:w-[60vw] lg:w-[50vw] h-48 sm:h-64 md:h-72 lg:h-80 xl:h-96 overflow-hidden rounded-lg 
-              hover:scale-[1.02] transition-transform duration-300 ease-in-out hover:shadow-lg"
+                      className="relative w-full aspect-video min-h-[300px] max-h-[80vh]"
                     >
                       <div className="relative w-full h-full overflow-hidden rounded-lg">
                         <Image
@@ -144,7 +141,7 @@ export default async function Home() {
             <h2 className="text-2xl font-bold border-b-4 border-orange-500 capitalize">
               my projects
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
               {Array.isArray(projects) &&
                 projects.map((project: any) => (
                   <FetchProject key={project.id} project={project} />
