@@ -24,7 +24,11 @@ export default function FetchSkill({ skill }: { skill: SkillTypes }) {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className={`text-sm text-gray-700 dark:text-gray-300 ${clip}`}>{skill.description}</p>
+        <p
+          className={`text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 ${clip}`}
+        >
+          {skill.description}
+        </p>
       </CardContent>
       <CardFooter>
         <Button

@@ -80,46 +80,47 @@ export default async function Home() {
       </Suspense>
 
       <Suspense fallback={<Loading />}>
-        <div className="w-full bg-gray-50 sm:px-10 px-3 py-15 h-auto dark:bg-gray-950 dark:text-white">
-          <section className="flex flex-col items-center">
-            <h3 className="text-lg font-semibold mb-3 capitalize">Portfolio</h3>
-            <h2 className="text-2xl font-bold border-b-4 border-orange-500 capitalize">
+        <div className="w-full bg-gray-50 px-4 sm:px-8 md:px-10 py-12 md:py-16 dark:bg-gray-950 dark:text-white">
+          <section className="flex flex-col items-center mx-auto max-w-7xl">
+            <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 capitalize">
+              Portfolio
+            </h3>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold border-b-4 border-orange-500 capitalize">
               My Portfolios
             </h2>
 
             <Carousel
               orientation="horizontal"
-              className="mt-20 w-full max-w-3xl rounded-lg"
+              className="mt-10 sm:mt-16 md:mt-20 w-full max-w-4xl rounded-lg"
             >
               <CarouselContent>
                 {Array.isArray(portfolios) &&
                   portfolios.map((portfolio) => (
                     <CarouselItem
                       key={portfolio.id}
-                      className="relative w-[50vw] lg:min-w-4xl md:min-w-3xl h-64 md:h-80 lg:h-96 overflow-hidden rounded-lg 
-            hover:scale-105 transition-transform duration-500 ease-in-out hover:shadow-2xl"
+                      className="relative w-full sm:w-[80vw] md:w-[60vw] lg:w-[50vw] h-48 sm:h-64 md:h-72 lg:h-80 xl:h-96 overflow-hidden rounded-lg 
+              hover:scale-[1.02] transition-transform duration-300 ease-in-out hover:shadow-lg"
                     >
-                      <div className="absolute flex flex-col items-center justify-center w-full h-full transition-opacity duration-500">
-                        <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden rounded-lg">
-                          <Image
-                            src={portfolio.imageUrl}
-                            alt={portfolio.title}
-                            fill
-                            className="object-cover rounded-lg transition-transform duration-500 ease-in-out hover:scale-110"
-                            priority
-                          />
-                        </div>
+                      <div className="relative w-full h-full overflow-hidden rounded-lg">
+                        <Image
+                          src={portfolio.imageUrl}
+                          alt={portfolio.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 60vw, 50vw"
+                          className="object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
+                          priority
+                        />
                       </div>
 
                       <div
-                        className="absolute w-full h-full flex justify-center items-center bg-black bg-opacity-60 backdrop-blur-md 
-            transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100 px-30"
+                        className="absolute inset-0 flex justify-center items-center bg-black/50 backdrop-blur-sm 
+                transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 p-4 sm:p-6"
                       >
-                        <div className="flex flex-col justify-center items-center text-white text-center px-5 gap-5">
-                          <h3 className="text-xl font-semibold transition-transform duration-500 translate-y-5 hover:translate-y-0">
+                        <div className="flex flex-col justify-center items-center text-white text-center max-w-md mx-auto gap-2 sm:gap-3 md:gap-4">
+                          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold transition-transform duration-300 translate-y-4 group-hover:translate-y-0">
                             {portfolio.title}
                           </h3>
-                          <p className="text-sm opacity-80 transition-opacity duration-500 hover:opacity-100">
+                          <p className="text-xs sm:text-sm md:text-base opacity-90 transition-opacity duration-300">
                             {portfolio.description}
                           </p>
                         </div>
@@ -127,8 +128,8 @@ export default async function Home() {
                     </CarouselItem>
                   ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
             </Carousel>
           </section>
         </div>

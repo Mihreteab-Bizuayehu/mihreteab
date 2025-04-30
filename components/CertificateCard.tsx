@@ -38,7 +38,9 @@ export default function FetchCertificate({
         </CardTitle>
       </CardHeader>
       <CardContent className="px-4">
-        <p className={`text-sm text-gray-700 dark:text-gray-300 ${clip}`}>
+        <p
+          className={`text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 ${clip}`}
+        >
           {certificate.description}
         </p>
       </CardContent>
