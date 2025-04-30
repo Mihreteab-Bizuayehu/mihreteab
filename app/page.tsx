@@ -98,26 +98,28 @@ export default async function Home() {
                       key={portfolio.id}
                       className="relative w-full aspect-video min-h-[300px] max-h-[80vh]"
                     >
-                      <div className="relative w-full h-full overflow-hidden rounded-lg">
-                        <Image
-                          src={portfolio.imageUrl}
-                          alt={portfolio.title}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 60vw, 50vw"
-                          className="object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
-                          priority
-                        />
+                      <div className="absolute inset-0">
+                        <div className="relative w-full h-full overflow-hidden rounded-lg">
+                          <Image
+                            src={portfolio.imageUrl}
+                            alt={portfolio.title}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 60vw, 50vw"
+                            className="object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
+                            priority
+                          />
+                        </div>
                       </div>
 
                       <div
                         className="absolute inset-0 flex justify-center items-center bg-black/50 backdrop-blur-sm 
-                transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 p-4 sm:p-6"
+    transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 px-4 py-8"
                       >
-                        <div className="flex flex-col justify-center items-center text-white text-center max-w-md mx-auto gap-2 sm:gap-3 md:gap-4">
-                          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold transition-transform duration-300 translate-y-4 group-hover:translate-y-0">
+                        <div className="w-full h-full flex flex-col justify-center items-center text-white text-center px-4 sm:px-8 md:px-12 lg:px-16 gap-2 sm:gap-3 md:gap-4">
+                          <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold transition-transform duration-300 translate-y-4 group-hover:translate-y-0 w-full max-w-3xl">
                             {portfolio.title}
                           </h3>
-                          <p className="text-xs sm:text-sm md:text-base opacity-90 transition-opacity duration-300">
+                          <p className="text-sm sm:text-base md:text-lg opacity-90 transition-opacity duration-300 w-full max-w-3xl">
                             {portfolio.description}
                           </p>
                         </div>
