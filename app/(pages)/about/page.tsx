@@ -10,120 +10,97 @@ import Loading from '@/components/loading';
 export const metadata: Metadata = {
   title: 'About-MeraBizu',
 };
-
 export default async function About() {
   const certificates = await getCertificates();
-
   return (
-    <div className="flex flex-col justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-gray-50 dark:bg-gray-900 dark:text-white py-8 sm:py-12 rounded-lg">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-          <section className="w-full lg:w-1/2 space-y-6">
-            <h1 className="text-3xl sm:text-4xl font-bold leading-tight">
-              About Me
-            </h1>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100">
-              I'm Mihreteab Bizuayehu
-            </h2>
-            <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
-              <p className="text-base sm:text-lg leading-relaxed">
-                I am a passionate and results-driven Full Stack Developer with a
-                BSc Degree in Computer Engineering from Bahir Dar University,
-                earned on July 19, 2023. My expertise lies in building fast,
-                scalable, and modern web applications that deliver seamless user
-                experiences.
-              </p>
-              <p className="text-base sm:text-lg leading-relaxed">
-                I specialize in the MERN stack and Next.js, with strong
-                proficiency in both frontend and backend technologies including
-                HTML5, CSS3, Bootstrap5, Tailwind CSS, Shadcn UI, DaisyUI,
-                JavaScript/ES6, React, and React Native. On the server side, I
-                work confidently with Node.js/Express.js and databases such as
-                MongoDB, MySQL, and PostgreSQL, alongside tools like Prisma ORM.
-              </p>
-              <p className="text-base sm:text-lg leading-relaxed">
-                In addition to my web development stack, I also have solid
-                experience in programming languages like C++, Java,
-                JavaScript/TypeScript, and Python. I'm committed to crafting
-                digital solutions that are not only visually appealing but also
-                high-performing and reliable.
-              </p>
-            </div>
+    <div className="flex flex-col justify-center w-[90%] mx-auto items-center">
+      <div className="w-full flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white py-10 px-4 sm:px-8 lg:px-16 lg:py-10 ">
+        <h3 className="text-lg font-semibold mb-2 text-center text-gray-700 dark:text-gray-300">Know about me</h3>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center self-center mb-10 border-b-4 border-blue-500 inline-block">
+          About Me
+        </h2>
+
+        <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-6 sm:gap-10">
+          <section className="sm:w-1/2 flex flex-col gap-4 text-center sm:text-left">
+            <h2 className=" text-2xl sm:text-3xl font-bold">I'm Mihreteab Bizuayehu</h2>
+            <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+              I'm a passionate and results-driven Full Stack Developer with a
+              BSc Degree in Computer Engineering from Bahir Dar University (July
+              19, 2023). I build fast, scalable, and modern web applications
+              with a strong focus on seamless UX. I specialize in the{' '}
+              <strong>MERN stack</strong> and <strong>Next.js</strong>, with
+              expertise in frontend technologies such as HTML5, CSS3,
+              Bootstrap5, Tailwind CSS, Shadcn UI, DaisyUI, and React/React
+              Native. On the backend, I work with Node.js, Express.js, MongoDB,
+              MySQL, PostgreSQL, and Prisma ORM. I also write in C++, Java,
+              TypeScript, and Python. My goal is to craft visually appealing and
+              high-performing digital solutions.
+            </p>
           </section>
 
-          <section className="w-full lg:w-1/2 flex justify-center">
-            <div className="flex flex-col items-center space-y-6 max-w-md">
-              <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-lg">
-                <Image
-                  src={mera}
-                  alt="Profile Image"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <ul className="space-y-3 w-full">
-                {user.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex flex-col sm:flex-row items-start sm:items-center gap-2"
-                  >
-                    <span className="flex items-center text-gray-700 dark:text-gray-300">
-                      <item.icon
-                        color={item.color}
-                        size={20}
-                        className="mr-2"
-                      />
-                      <span className="font-medium">{item.label}</span>
-                    </span>
-                    <span className="sm:ml-auto text-gray-900 dark:text-white font-semibold">
-                      {item.content}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+          <section className="sm:w-1/2 flex flex-col items-center gap-6">
+            <div className="relative w-36 h-36 rounded-full shadow-lg overflow-hidden">
+              <Image
+                src={mera}
+                alt="Profile Image"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
+
+            <ul className="w-full flex flex-col gap-4">
+              {user.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-center gap-4 text-lg font-medium hover:text-blue-500 transition-all"
+                >
+                  <item.icon color={item.color} size={item.size} />
+                  <span>{item.label}</span>
+                  <span className=" text-right">{item.content}</span>
+                </li>
+              ))}
+            </ul>
           </section>
         </div>
       </div>
 
-      <div className="bg-gray-100 dark:bg-gray-950 dark:text-white py-8 sm:py-12 rounded-lg mt-8">
-        <section className="space-y-8">
-          <h3 className="text-3xl font-bold text-center">Skills</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h2 className="text-xl font-bold text-center">
+      <div className="bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-gray-950 px-5 sm:px-12 py-10 sm:py-20 w-full dark:text-white transition-all duration-500">
+        <section className="flex flex-col items-center w-full">
+          <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-300 mb-3">What I'm good at</h3>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-10 border-b-4 border-indigo-500 pb-2">
+            Skills
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-10 w-full max-w-6xl">
+            <div className="flex flex-col items-center sm:w-1/2 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg transition hover:scale-[1.02]">
+              <h2 className="text-xl font-semibold mb-6 text-indigo-600 dark:text-indigo-400">
                 Programming Languages
               </h2>
-              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <ul className="w-full grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {iconsConfig.programmingLanguages.map((item, index) => (
                   <li
                     key={index}
-                    className="flex items-center p-2 rounded-lg bg-white dark:bg-gray-800 shadow-sm"
+                    className="flex items-center justify-start gap-2 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
                   >
-                    <span className="flex items-center text-gray-800 dark:text-gray-200">
-                      {item.icon}
-                      <span className="ml-2">{item.label}</span>
-                    </span>
+                    <span className="text-xl">{item.icon}</span>
+                    {item.label}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="space-y-4">
-              <h2 className="text-xl font-bold text-center">
+
+            <div className="flex flex-col items-center sm:w-1/2 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg transition hover:scale-[1.02]">
+              <h2 className="text-xl font-semibold mb-6 text-indigo-600 dark:text-indigo-400">
                 Web Technologies
               </h2>
-              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <ul className="w-full grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {iconsConfig.webTechnologies.map((item, index) => (
                   <li
                     key={index}
-                    className="flex items-center p-2 rounded-lg bg-white dark:bg-gray-800 shadow-sm"
+                    className="flex items-center justify-start gap-2 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
                   >
-                    <span className="flex items-center text-gray-800 dark:text-gray-200">
-                      {item.icon}
-                      <span className="ml-2">{item.label}</span>
-                    </span>
+                    <span className="text-xl">{item.icon}</span>
+                    {item.label}
                   </li>
                 ))}
               </ul>
@@ -133,21 +110,31 @@ export default async function About() {
       </div>
 
       <Suspense fallback={<Loading />}>
-        <div className="bg-gray-50 dark:bg-gray-900 dark:text-white py-8 sm:py-12 rounded-lg mt-8">
-          <section className="space-y-8">
-            <h3 className="text-3xl font-bold text-center">Certificates</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {Array.isArray(certificates) ? (
-                certificates.map((certificate) => (
-                  <FetchCertificate
+        <div className="w-full bg-gray-50 px-3 sm:px-10 sm:py-15 py-5  h-auto dark:bg-gray-900 dark:text-white">
+          <section className="flex flex-col items-center px-4 sm:px-6 lg:px-8 py-12 dark:bg-gray-900 text-gray-900 dark:text-white">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-8 border-b-4 border-blue-500 pb-2">
+              📜 Certificates
+            </h3>
+
+            <h4 className="text-gray-500 my-4 dark:text-gray-300">
+              Here are some of the certificates I've earned over the years.
+            </h4>
+
+            {Array.isArray(certificates) && certificates.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+                {certificates.map((certificate) => (
+                  <div
                     key={certificate.id}
-                    certificate={certificate}
-                  />
-                ))
-              ) : (
-                <p className="text-red-500 text-center">{certificates.error}</p>
-              )}
-            </div>
+                  >
+                    <FetchCertificate certificate={certificate} />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-gray-500 mt-6 dark:text-gray-400">
+                No certificates available at the moment.
+              </p>
+            )}
           </section>
         </div>
       </Suspense>

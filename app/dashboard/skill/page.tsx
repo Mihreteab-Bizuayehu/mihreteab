@@ -59,81 +59,99 @@ export default function Skills() {
   };
 
   return (
-    <div className=" bg-gray-50 flex flex-col gap-4 p-4 dark:bg-gray-950 dark:text-white">
-      <div className="flex p-4 mx-5 items-center justify-between">
-        <h1 className="text-2xl font-bold">Skills</h1>
-        <Link
-          href={'/dashboard/skill/create'}
-          className={buttonVariants({ variant: 'default' })}
-        >
-          Create
-        </Link>
-      </div>
-      <section className="flex flex-col gap-y-10 px-3 sm:p-5 ">
-        <Table>
-          <TableCaption>A list of my recent skillls.</TableCaption>
-          <TableHeader>
-            <TableRow className="bg-gray-200 dark:bg-gray-800 dark:text-white ">
-              <TableHead className="w-[100px]">Id</TableHead>
-              <TableHead>Title</TableHead>
-              <TableHead>Description</TableHead>
-              <TableHead>Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <Suspense fallback={<Loading />}>
-            <TableBody>
-              {skills.length > 0 ? (
-                skills.map((skill) => (
-                  <TableRow key={skill.id}>
-                    <TableCell className="font-medium">{skill.id}</TableCell>
-                    <TableCell>{skill.title}</TableCell>
-                    <TableCell className="w-[500px]">
-                      {truncateWords(skill.description, 5)}
-                    </TableCell>
-                    <TableCell className="w-[500px]">
-                      <div className="flex items-center gap-4">
-                        <Button
-                          variant={'secondary'}
-                          className="uppercase"
-                          onClick={() => handleEdit(skill.id)}
+    <div className="bg-gray-50 dark:bg-gray-950 min-h-screen p-4">
+      <div className="max-w-7xl mx-auto space-y-6">
+        <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-900 rounded-lg shadow-sm">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            Skills
+          </h1>
+          <Link
+            href="/dashboard/skill/create"
+            className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:hover:bg-blue-600"
+          >
+            Create Skill
+          </Link>
+        </header>
+
+        <section className="bg-white dark:bg-gray-900 rounded-lg shadow-sm overflow-hidden">
+          <Table>
+            <TableCaption className="text-gray-500 dark:text-gray-400 p-4 text-left">
+              A list of my recent skills.
+            </TableCaption>
+            <TableHeader>
+              <TableRow className="bg-gray-100 dark:bg-gray-800 hover:bg-transparent">
+                <TableHead className="w-[100px] font-semibold text-gray-700 dark:text-gray-300">
+                  ID
+                </TableHead>
+                <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                  Title
+                </TableHead>
+                <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                  Description
+                </TableHead>
+                <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                  Actions
+                </TableHead>
+              </TableRow>
+            </TableHeader>
+
+            <Suspense fallback={<Loading />}>
+              <TableBody>
+                {skills.length > 0 ? (
+                  skills.map((skill) => (
+                    <TableRow
+                      key={skill.id}
+                      className="hover:bg-gray-50 dark:hover:bg-gray-800 border-t border-gray-200 dark:border-gray-700"
+                    >
+                      <TableCell className="font-medium text-gray-900 dark:text-gray-100">
+                        {skill.id}
+                      </TableCell>
+                      <TableCell className="text-gray-800 dark:text-gray-200">
+                        {skill.title}
+                      </TableCell>
+                      <TableCell className="text-gray-600 dark:text-gray-300 max-w-[500px] truncate">
+                        {truncateWords(skill.description, 5)}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-3">
+                          <button
+                            onClick={() => handleEdit(skill.id)}
+                            className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 uppercase"
+                          >
+                            Update
+                          </button>
+                          <button
+                            onClick={() => handleDelete(skill.id)}
+                            className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors bg-red-100 text-red-800 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-900/40 uppercase"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={4} className="py-10 text-center">
+                      <div className="flex flex-col items-center justify-center space-y-3">
+                        <p className="text-gray-500 dark:text-gray-400">
+                          No skills found
+                        </p>
+                        <Link
+                          href="/dashboard/skill/create"
+                          className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:hover:bg-blue-600"
                         >
-                          Update
-                        </Button>
-                        <Button
-                          variant={'destructive'}
-                          className="uppercase"
-                          onClick={() => handleDelete(skill.id)}
-                        >
-                          Delete
-                        </Button>
+                          Create New Skill
+                        </Link>
                       </div>
                     </TableCell>
                   </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={4} className="h-24 text-center">
-                    <div className="flex flex-col items-center gap-2">
-                      <p className="text-sm text-muted-foreground">
-                        No skills found
-                      </p>
-                      <Link
-                        href="/dashboard/skill/create"
-                        className={buttonVariants({
-                          variant: 'default',
-                          size: 'sm',
-                        })}
-                      >
-                        Create New Skill
-                      </Link>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Suspense>
-        </Table>
-      </section>
+                )}
+              </TableBody>
+            </Suspense>
+          </Table>
+        </section>
+      </div>
     </div>
   );
 }

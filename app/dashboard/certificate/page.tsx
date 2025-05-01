@@ -1,6 +1,5 @@
 'use client';
 
-import { Button, buttonVariants } from '@/components/ui/button';
 import Link from 'next/link';
 import {
   Table,
@@ -65,92 +64,111 @@ export default function Certificates() {
   };
 
   return (
-    <div className="bg-gray-50 flex flex-col gap-4 p-4 dark:bg-gray-900 dark:text-white">
-      <div className="flex p-4 mx-5 items-center justify-between">
-        <h1 className="text-2xl font-bold">Certificates</h1>
-        <Link
-          href="/dashboard/certificate/create"
-          className={buttonVariants({ variant: 'default' })}
-        >
-          Create
-        </Link>
-      </div>
+    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen p-4">
+      <div className="max-w-7xl mx-auto space-y-6">
+        <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            Certificates
+          </h1>
+          <Link
+            href="/dashboard/certificate/create"
+            className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:hover:bg-blue-600"
+          >
+            Create Certificate
+          </Link>
+        </header>
 
-      <section className="flex flex-col gap-y-10 px-3 sm:p-5">
-        <Table>
-          <TableCaption>A list of my recent certificates.</TableCaption>
-          <TableHeader>
-            <TableRow className="bg-gray-200 dark:bg-gray-800">
-              <TableHead>Id</TableHead>
-              <TableHead>Image</TableHead>
-              <TableHead>Title</TableHead>
-              <TableHead>Description</TableHead>
-              <TableHead>Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <Suspense fallback={<Loading />}>
-            <TableBody>
-              {certificates.length > 0 ? (
-                certificates.map((certificate) => (
-                  <TableRow key={certificate.id}>
-                    <TableCell>{certificate.id}</TableCell>
-                    <TableCell>
-                      <Image
-                        src={certificate.imageUrl}
-                        alt={certificate.title}
-                        width={50}
-                        height={50}
-                        className="rounded"
-                      />
-                    </TableCell>
-                    <TableCell>{certificate.title}</TableCell>
-                    <TableCell className="w-[500px]">
-                      {truncateWords(certificate.description, 5)}
-                    </TableCell>
-                    <TableCell className="space-x-2">
-                      <div className="flex items-center gap-4">
-                        <Button
-                          variant={'secondary'}
-                          className="uppercase"
-                          onClick={() => handleEdit(certificate.id)}
+        <section className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden">
+          <Table>
+            <TableCaption className="text-gray-500 dark:text-gray-400 p-4 text-left">
+              A list of my recent certificates.
+            </TableCaption>
+            <TableHeader>
+              <TableRow className="bg-gray-100 dark:bg-gray-700 hover:bg-transparent">
+                <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                  ID
+                </TableHead>
+                <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                  Image
+                </TableHead>
+                <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                  Title
+                </TableHead>
+                <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                  Description
+                </TableHead>
+                <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                  Actions
+                </TableHead>
+              </TableRow>
+            </TableHeader>
+
+            <Suspense fallback={<Loading />}>
+              <TableBody>
+                {certificates.length > 0 ? (
+                  certificates.map((certificate) => (
+                    <TableRow
+                      key={certificate.id}
+                      className="hover:bg-gray-50 dark:hover:bg-gray-700 border-t border-gray-200 dark:border-gray-600"
+                    >
+                      <TableCell className="text-gray-900 dark:text-gray-100">
+                        {certificate.id}
+                      </TableCell>
+                      <TableCell>
+                        <Image
+                          src={certificate.imageUrl}
+                          alt={certificate.title}
+                          width={50}
+                          height={50}
+                          className="object-cover rounded-md"
+                        />
+                      </TableCell>
+                      <TableCell className="text-gray-800 dark:text-gray-200">
+                        {certificate.title}
+                      </TableCell>
+                      <TableCell className="text-gray-600 dark:text-gray-300 max-w-[500px] truncate">
+                        {truncateWords(certificate.description, 5)}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-3">
+                          <button
+                            onClick={() => handleEdit(certificate.id)}
+                            className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 uppercase"
+                          >
+                            Update
+                          </button>
+                          <button
+                            onClick={() => handleDelete(certificate.id)}
+                            className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors bg-red-100 text-red-800 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-900/40 uppercase"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={5} className="py-10 text-center">
+                      <div className="flex flex-col items-center justify-center space-y-3">
+                        <p className="text-gray-500 dark:text-gray-400">
+                          No certificates found
+                        </p>
+                        <Link
+                          href="/dashboard/certificate/create"
+                          className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:hover:bg-blue-600"
                         >
-                          Update
-                        </Button>
-                        <Button
-                          variant={'destructive'}
-                          className="uppercase"
-                          onClick={() => handleDelete(certificate.id)}
-                        >
-                          Delete
-                        </Button>
+                          Create New Certificate
+                        </Link>
                       </div>
                     </TableCell>
                   </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={5} className="text-center">
-                    <div className="flex flex-col items-center gap-2">
-                      <p className="text-sm text-muted-foreground">
-                        No certificates found
-                      </p>
-                      <Link
-                        href="/dashboard/certificate/create"
-                        className={buttonVariants({
-                          variant: 'default',
-                          size: 'sm',
-                        })}
-                      >
-                        Create New Certificate
-                      </Link>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Suspense>
-        </Table>
-      </section>
+                )}
+              </TableBody>
+            </Suspense>
+          </Table>
+        </section>
+      </div>
     </div>
   );
 }

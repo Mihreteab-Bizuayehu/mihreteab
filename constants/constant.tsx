@@ -33,7 +33,6 @@ import {
   Folder,
 } from 'lucide-react';
 
-
 const iconSize = 24;
 export const user = [
   {
@@ -66,7 +65,6 @@ export const user = [
   },
 ];
 
-
 export const navItems = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
@@ -77,7 +75,6 @@ export const navItems = [
   },
   { href: '/blog', label: 'Blog' },
 ];
-
 
 export type CertificateContextType = {
   certificates: any[];
@@ -97,7 +94,6 @@ export type CertificateContextType = {
   handleEdit: (certificate: any) => void;
   handleDelete: (id: number) => Promise<void>;
 };
-
 
 export const socialLinks = [
   {
@@ -122,7 +118,6 @@ export const socialLinks = [
     color: '#3b5998',
   },
 ];
-
 
 export const iconsConfig = {
   webTechnologies: [{
@@ -229,7 +224,6 @@ export const iconsConfig = {
   },
   ]
 };
-
 
 export const dashboardItems = [
   {

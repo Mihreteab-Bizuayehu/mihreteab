@@ -1,6 +1,4 @@
 'use client';
-
-import { Button, buttonVariants } from '@/components/ui/button';
 import Link from 'next/link';
 import {
   Table,
@@ -60,110 +58,130 @@ export default function Projects() {
   };
 
   return (
-    <div className="bg-gray-50 flex flex-col gap-4 p-4 dark:bg-gray-900 dark:text-white">
-      <div className="flex p-4 mx-5 items-center justify-between">
-        <h1 className="text-2xl font-bold">Projects</h1>
-        <Link
-          href={'/dashboard/project/create'}
-          className={buttonVariants({ variant: 'default' })}
-        >
-          Create Project
-        </Link>
-      </div>
-      <section className="flex flex-col gap-y-10 px-3 sm:p-5 overflow-x-auto">
-        <Table>
-          <TableCaption>A list of all projects</TableCaption>
-          <TableHeader>
-            <TableRow className="bg-gray-200 dark:bg-gray-800">
-              <TableHead className="min-w-[50px]">ID</TableHead>
-              <TableHead className="min-w-[80px]">Image</TableHead>
-              <TableHead>Title</TableHead>
-              <TableHead className="min-w-[300px] max-w-[500px]">
-                Description
-              </TableHead>
-              <TableHead className="min-w-[150px]">Site</TableHead>
-              <TableHead className="min-w-[200px]">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <Suspense fallback={<Loading />}>
-            <TableBody>
-              {projects.length > 0 ? (
-                projects.map((project) => (
-                  <TableRow key={project.id}>
-                    <TableCell className="font-medium">{project.id}</TableCell>
-                    <TableCell>
-                      <Image
-                        src={project.imageUrl}
-                        alt={project.title}
-                        width={50}
-                        height={50}
-                        className="object-cover rounded"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src =
-                            '/placeholder-project.png';
-                        }}
-                      />
-                    </TableCell>
-                    <TableCell className="truncate max-w-[150px]">
-                      {project.title}
-                    </TableCell>
-                    <TableCell className="max-w-[500px] truncate">
-                      {project.description}
-                    </TableCell>
-                    <TableCell className="truncate max-w-[150px]">
-                      <a
-                        href={project.linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
-                      >
-                        Visit Site
-                      </a>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <Button
-                          variant={'secondary'}
-                          className="uppercase"
-                          onClick={() => handleEdit(project.id)}
-                        >
-                          Update
-                        </Button>
-                        <Button
-                          variant={'destructive'}
-                          className="uppercase"
-                          onClick={() => handleDelete(project.id)}
-                        >
-                          Delete
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={6} className="text-center py-10">
-                    <div className="flex flex-col items-center gap-2">
-                      <p className="text-sm text-muted-foreground">
-                        No projects found
-                      </p>
-                      <Link
-                        href="/dashboard/project/create"
-                        className={buttonVariants({
-                          variant: 'default',
-                          size: 'sm',
-                        })}
-                      >
-                        Create New Project
-                      </Link>
-                    </div>
-                  </TableCell>
+    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen p-4">
+      <div className="max-w-7xl mx-auto space-y-6">
+        <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            Projects
+          </h1>
+          <Link
+            href="/dashboard/project/create"
+            className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:hover:bg-blue-600"
+          >
+            Create Project
+          </Link>
+        </header>
+
+        <section className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
+            <Table>
+              <TableCaption className="text-gray-500 dark:text-gray-400 p-4 text-left">
+                A list of all projects
+              </TableCaption>
+              <TableHeader>
+                <TableRow className="bg-gray-100 dark:bg-gray-700 hover:bg-transparent">
+                  <TableHead className="min-w-[50px] font-semibold text-gray-700 dark:text-gray-300">
+                    ID
+                  </TableHead>
+                  <TableHead className="min-w-[80px] font-semibold text-gray-700 dark:text-gray-300">
+                    Image
+                  </TableHead>
+                  <TableHead className="font-semibold text-gray-700 dark:text-gray-300">
+                    Title
+                  </TableHead>
+                  <TableHead className="min-w-[300px] max-w-[500px] font-semibold text-gray-700 dark:text-gray-300">
+                    Description
+                  </TableHead>
+                  <TableHead className="min-w-[150px] font-semibold text-gray-700 dark:text-gray-300">
+                    Site
+                  </TableHead>
+                  <TableHead className="min-w-[200px] font-semibold text-gray-700 dark:text-gray-300">
+                    Actions
+                  </TableHead>
                 </TableRow>
-              )}
-            </TableBody>
-          </Suspense>
-        </Table>
-      </section>
+              </TableHeader>
+
+              <Suspense fallback={<Loading />}>
+                <TableBody>
+                  {projects.length > 0 ? (
+                    projects.map((project) => (
+                      <TableRow
+                        key={project.id}
+                        className="hover:bg-gray-50 dark:hover:bg-gray-700 border-t border-gray-200 dark:border-gray-600"
+                      >
+                        <TableCell className="font-medium text-gray-900 dark:text-gray-100">
+                          {project.id}
+                        </TableCell>
+                        <TableCell>
+                          <Image
+                            src={project.imageUrl}
+                            alt={project.title}
+                            width={50}
+                            height={50}
+                            className="object-cover rounded-md"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src =
+                                '/placeholder-project.png';
+                            }}
+                          />
+                        </TableCell>
+                        <TableCell className="text-gray-800 dark:text-gray-200 truncate max-w-[150px]">
+                          {project.title}
+                        </TableCell>
+                        <TableCell className="text-gray-600 dark:text-gray-300 max-w-[500px] truncate">
+                          {project.description}
+                        </TableCell>
+                        <TableCell className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 truncate max-w-[150px]">
+                          <a
+                            href={project.linkUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline"
+                          >
+                            Visit Site
+                          </a>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <button
+                              onClick={() => handleEdit(project.id)}
+                              className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 uppercase"
+                            >
+                              Update
+                            </button>
+                            <button
+                              onClick={() => handleDelete(project.id)}
+                              className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors bg-red-100 text-red-800 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-900/40 uppercase"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  ) : (
+                    <TableRow>
+                      <TableCell colSpan={6} className="text-center py-10">
+                        <div className="flex flex-col items-center justify-center space-y-3">
+                          <p className="text-gray-500 dark:text-gray-400">
+                            No projects found
+                          </p>
+                          <Link
+                            href="/dashboard/project/create"
+                            className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:hover:bg-blue-600"
+                          >
+                            Create New Project
+                          </Link>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </TableBody>
+              </Suspense>
+            </Table>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

@@ -25,107 +25,112 @@ export default function Navbar() {
   }
   const role = user?.publicMetadata.role;
   return (
-    <header>
-      <nav className="flex justify-between items-center p-3 md:px-20 md:py-5">
-        <Link href="/">
+    <header className="border-b">
+      <nav className="flex justify-between items-center p-4 md:px-20 md:py-5">
+        {/* Logo */}
+        <Link href="/" className="hover:opacity-80 transition-opacity">
           <h1 className="font-extrabold text-2xl md:text-3xl">
             Mera<span className="text-blue-500">Bizu</span>
           </h1>
         </Link>
-        <div className="flex items-center md:gap-10">
-          <ul className="hidden md:flex space-x-5">
+
+        {/* Desktop Navigation */}
+        <div className="flex items-center gap-6 md:gap-10">
+          {/* Nav Items */}
+          <ul className="hidden md:flex gap-6">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`${
+                  className={`px-1 py-2 transition-colors ${
                     pathname === item.href
-                      ? 'text-blue-500 border-b-2 border-blue-500'
-                      : ''
-                  } hover:text-blue-500 hover:border-b-2 hover:border-blue-500`}
+                      ? 'text-blue-500 border-b-2 border-blue-500 font-medium'
+                      : 'text-gray-600 hover:text-blue-500'
+                  }`}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <div className=" hidden md:flex items-center gap-5">
+          <div className="hidden md:flex items-center gap-5">
             <SignedOut>
-              <SignInButton />
+              <SignInButton/>
             </SignedOut>
             <SignedIn>
-              {role === 'marketing_admin' ? (
-                <>
-                  <Link
-                    href="/dashboard"
-                    className={`${
-                      pathname === '/dashboard'
-                        ? 'text-blue-500 border-b-2 border-blue-500'
-                        : ''
-                    } hover:text-blue-500 hover:border-b-2 hover:border-blue-500`}
-                  >
-                    Dashboard
-                  </Link>
-                  <UserButton />
-                </>
-              ) : (
-                <UserButton />
+              {role === 'marketing_admin' && (
+                <Link
+                  href="/dashboard"
+                  className={`px-1 py-2 transition-colors ${
+                    pathname === '/dashboard'
+                      ? 'text-blue-500 border-b-2 border-blue-500 font-medium'
+                      : 'text-gray-600 hover:text-blue-500'
+                  }`}
+                >
+                  Dashboard
+                </Link>
               )}
+              <UserButton />
             </SignedIn>
           </div>
-        </div>
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger className="md:hidden">
-            <Menu className="w-6 h-6" />
-          </SheetTrigger>
-          <SheetContent side="left" className="w-64">
-            <DialogTitle className="text-2xl px-4 py-2">Menu</DialogTitle>
-            <ul className="space-y-2 mt-2">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`block px-4 py-2 ${
-                      pathname === item.href
-                        ? 'text-blue-500 border-b-2 border-blue-500'
-                        : ''
-                    }`}
-                    onClick={() => setOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-              <div className="flex flex-col gap-4 px-4">
-                <SignedOut>
-                  <div>
+
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              <Menu className="w-6 h-6" />
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[280px] sm:w-[300px]">
+              <div className="flex flex-col h-auto px-6">
+                <DialogTitle className="text-xl font-bold px-2 py-4 border-b">
+                  Menu
+                </DialogTitle>
+
+                <ul className="flex-1 py-4 space-y-2">
+                  {navItems.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={`block px-4 py-3 rounded-md transition-colors ${
+                          pathname === item.href
+                            ? 'bg-blue-50 text-blue-600 font-medium'
+                            : 'hover:bg-gray-100 dark:hover:bg-gray-800'
+                        }`}
+                        onClick={() => setOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="border-t pt-4 px-4 space-y-4">
+                  <SignedOut>
                     <SignInButton />
-                  </div>
-                </SignedOut>
-                <SignedIn>
-                  {role === 'marketing_admin' ? (
-                    <>
+                  </SignedOut>
+                  <SignedIn>
+                    {role === 'marketing_admin' && (
                       <Link
                         href="/dashboard"
-                        className={`${
+                        className={`block px-4 py-3 rounded-md transition-colors ${
                           pathname === '/dashboard'
-                            ? 'text-blue-500 border-b-2 border-blue-500'
-                            : ''
-                        } hover:text-blue-500 hover:border-b-2 hover:border-blue-500 pb-4`}
+                            ? 'bg-blue-50 text-blue-600 font-medium'
+                            : 'hover:bg-gray-100 dark:hover:bg-gray-800'
+                        }`}
+                        onClick={() => setOpen(false)}
                       >
                         Dashboard
                       </Link>
+                    )}
+                    <div className="px-4 py-2">
                       <UserButton />
-                    </>
-                  ) : (
-                    <UserButton />
-                  )}
-                </SignedIn>
+                    </div>
+                  </SignedIn>
+                </div>
               </div>
-            </ul>
-          </SheetContent>
-        </Sheet>
-        <ModeToggle />
+            </SheetContent>
+          </Sheet>
+
+          <ModeToggle />
+        </div>
       </nav>
     </header>
   );
