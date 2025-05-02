@@ -16,6 +16,7 @@ import { deleteProject, getProjects } from '@/app/actions/project';
 import toast from 'react-hot-toast';
 import { ProjectTypes } from '@/types/DataType';
 import Loading from '@/components/loading';
+import { Button } from '@/components/ui/button';
 
 export default function Projects() {
   const [projects, setProjects] = useState<ProjectTypes[]>([]);
@@ -75,7 +76,7 @@ export default function Projects() {
         <section className="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <Table>
-              <TableCaption className="text-gray-500 dark:text-gray-400 p-4 text-left">
+              <TableCaption className="text-gray-500 dark:text-gray-400 p-4 text-center">
                 A list of all projects
               </TableCaption>
               <TableHeader>
@@ -143,18 +144,18 @@ export default function Projects() {
                         </TableCell>
                         <TableCell>
                           <div className="flex items-center gap-2 flex-wrap">
-                            <button
+                            <Button
                               onClick={() => handleEdit(project.id)}
                               className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 uppercase"
                             >
                               Update
-                            </button>
-                            <button
+                            </Button>
+                            <Button
                               onClick={() => handleDelete(project.id)}
                               className="inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors bg-red-100 text-red-800 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-900/40 uppercase"
                             >
                               Delete
-                            </button>
+                            </Button>
                           </div>
                         </TableCell>
                       </TableRow>
