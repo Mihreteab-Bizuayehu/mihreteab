@@ -23,7 +23,7 @@ export default async function Home() {
   const projects = await getProjects();
   return (
     <div className="flex flex-col justify-center w-[90%] mx-auto items-center">
-      <div className="bg-gray-50 dark:bg-gray-950 dark:text-white w-full py-12 sm:h-[70vh] flex flex-col-reverse sm:flex-row items-center justify-between gap-8 px-4 sm:px-10 max-w-screen-xl mx-auto">
+      <div className="bg-gray-50 dark:bg-gray-950 dark:text-white w-full py-12 sm:h-[70vh] flex flex-col-reverse sm:flex-row items-center justify-between gap-8 px-4 sm:px-10">
         <section className="w-full sm:w-1/2 flex flex-col gap-4 text-center sm:text-left">
           <h1 className="text-2xl sm:text-4xl font-bold tracking-tight leading-tight text-balance">
             Hi, I'm Mihreteab Bizuayehu
