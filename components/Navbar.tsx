@@ -27,16 +27,13 @@ export default function Navbar() {
   return (
     <header className="border-b">
       <nav className="flex justify-between items-center p-4 md:px-20 md:py-5">
-        {/* Logo */}
         <Link href="/" className="hover:opacity-80 transition-opacity">
           <h1 className="font-extrabold text-2xl md:text-3xl">
             Mera<span className="text-blue-500">Bizu</span>
           </h1>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="flex items-center gap-6 md:gap-10">
-          {/* Nav Items */}
           <ul className="hidden md:flex gap-6">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -45,7 +42,7 @@ export default function Navbar() {
                   className={`px-1 py-2 transition-colors ${
                     pathname === item.href
                       ? 'text-blue-500 border-b-2 border-blue-500 font-medium'
-                      : 'text-gray-600 hover:text-blue-500'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-500'
                   }`}
                 >
                   {item.label}
@@ -64,7 +61,7 @@ export default function Navbar() {
                   className={`px-1 py-2 transition-colors ${
                     pathname === '/dashboard'
                       ? 'text-blue-500 border-b-2 border-blue-500 font-medium'
-                      : 'text-gray-600 hover:text-blue-500'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-500'
                   }`}
                 >
                   Dashboard
