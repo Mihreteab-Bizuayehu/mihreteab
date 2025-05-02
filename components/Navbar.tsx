@@ -107,7 +107,7 @@ export default function Navbar() {
                     {role === 'marketing_admin' && (
                       <Link
                         href="/dashboard"
-                        className={`block px-4 py-3 rounded-md transition-colors ${
+                        className={`block py-3 rounded-md transition-colors ${
                           pathname === '/dashboard'
                             ? 'bg-blue-50 text-blue-600 font-medium'
                             : 'hover:bg-gray-100 dark:hover:bg-gray-800'
