@@ -46,10 +46,14 @@ const SideMenu = () => {
                   onClick={() => setOpen(false)}
                 >
                   <item.icon
-                    className="mr-3 h-5 w-5"
                     size={item.size}
                     color={item.color}
                     strokeWidth={item.strokeWidth}
+                    className={`mr-3 h-5 w-5 ${
+                      pathname === item.href
+                        ? 'text-blue-600 dark:text-blue-400'
+                        : `${item.color}`
+                    }`}
                   />
                   {item.name}
                 </Link>
@@ -80,10 +84,13 @@ const SideMenu = () => {
               >
                 <CommandItem className="flex items-center px-4 py-3">
                   <item.icon
+                    size={item.size}
+                    color={item.color}
+                    strokeWidth={item.strokeWidth}
                     className={`mr-3 h-5 w-5 ${
                       pathname === item.href
                         ? 'text-blue-600 dark:text-blue-400'
-                        : 'text-gray-500 dark:text-gray-400'
+                        : `${item.color}`
                     }`}
                   />
                   <span className="text-sm font-medium">{item.name}</span>
