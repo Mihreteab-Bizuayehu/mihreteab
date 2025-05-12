@@ -39,7 +39,7 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`px-1 py-2 transition-colors ${
+                  className={`px-1 py-2 transition-colors text-base md:text-lg ${
                     pathname === item.href
                       ? 'text-blue-500 border-b-2 border-blue-500 font-medium'
                       : 'text-gray-600 dark:text-gray-300 hover:text-blue-500'
@@ -50,7 +50,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden md:flex items-center gap-5 text-base md:text-lg">
             <SignedOut>
               <SignInButton/>
             </SignedOut>

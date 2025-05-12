@@ -25,13 +25,13 @@ export default async function Home() {
     <div className="flex flex-col justify-center w-[90%] mx-auto items-center">
       <div className="bg-gray-50 dark:bg-gray-950 dark:text-white w-full py-12 sm:h-[70vh] flex flex-col-reverse sm:flex-row items-center justify-between gap-8 px-4 sm:px-10">
         <section className="w-full sm:w-1/2 flex flex-col gap-4 text-center sm:text-left">
-          <h1 className="text-2xl sm:text-4xl font-bold tracking-tight leading-tight text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight text-balance">
             Hi, I'm Mihreteab Bizuayehu
-          </h1>
-          <h3 className="text-lg sm:text-2xl font-medium tracking-tight text-pretty">
+          </h2>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-pretty">
             Full Stack Developer | MERN Stack, Next.js & React Native
           </h3>
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 text-justify">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 text-justify">
             I build fast, scalable, and modern web applications with seamless
             user experiences. From powerful backends to sleek frontends — I
             craft digital solutions that work beautifully and perform
@@ -39,7 +39,7 @@ export default async function Home() {
           </p>
           <Link
             href="/contact"
-            className={`${buttonVariants()} mt-4 sm:mt-6 inline-block w-max uppercase transition-all duration-300 hover:bg-primary hover:text-white self-center sm:self-start`}
+            className={`${buttonVariants()} text-base sm:text-lg md:text-xl dark:bg-gray-900 dark:text-white mt-4 sm:mt-6 inline-block w-max uppercase transition-all duration-300 hover:bg-primary hover:text-white self-center sm:self-start`}
           >
             Hire Me
           </Link>
@@ -60,7 +60,7 @@ export default async function Home() {
       <Suspense fallback={<Loading />}>
         <div className="w-full bg-gray-100 dark:bg-gray-900 dark:text-white px-4 sm:px-8 md:px-12 py-16">
           <section className="flex flex-col items-center text-center max-w-6xl mx-auto">
-            <h3 className="text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-300 mb-2">
               Skills
             </h3>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white border-b-4 border-blue-500 pb-2">
@@ -81,7 +81,7 @@ export default async function Home() {
       <Suspense fallback={<Loading />}>
         <div className="w-full bg-gray-50 dark:bg-gray-950 dark:text-white px-4 sm:px-8 md:px-12 py-12 md:py-20">
           <section className="flex flex-col items-center mx-auto max-w-7xl text-center">
-            <h3 className="text-sm sm:text-base font-medium text-gray-600 dark:text-gray-300 mb-1 uppercase tracking-wide">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-1 uppercase tracking-wide">
               Portfolio
             </h3>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold border-b-4 border-blue-500 pb-1 mb-8 capitalize">
@@ -111,7 +111,7 @@ export default async function Home() {
                           <h3 className="text-lg sm:text-xl md:text-2xl font-semibold transition-transform duration-300 translate-y-4 group-hover:translate-y-0">
                             {portfolio.title}
                           </h3>
-                          <p className="text-sm sm:text-base md:text-lg opacity-90 max-w-2xl mx-auto">
+                          <p className="text-base sm:text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
                             {portfolio.description}
                           </p>
                         </div>
@@ -130,7 +130,7 @@ export default async function Home() {
         <div className="w-full bg-gray-100 dark:bg-gray-900 dark:text-white px-4 sm:px-10 py-16">
           <section className="max-w-7xl mx-auto text-center space-y-6">
             <div>
-              <h3 className="text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
                 What I Do?
               </h3>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold border-b-4 border-blue-500 inline-block pb-1 capitalize">

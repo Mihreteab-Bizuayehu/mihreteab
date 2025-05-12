@@ -33,19 +33,19 @@ export default function FetchProject({ project }: { project: ProjectTypes }) {
           />
         </div>
         <CardHeader className="px-5 pt-4 text-center">
-          <CardTitle className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          <CardTitle className="text-xl md:text-2xl  font-semibold tracking-tight text-gray-900 dark:text-white">
             {project.title}
           </CardTitle>
         </CardHeader>
         <CardContent className="px-5 pb-3">
-          <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 line-clamp-3 leading-relaxed">
+          <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 line-clamp-3 leading-relaxed">
             {project.description}
           </p>
         </CardContent>
         <CardFooter className="flex justify-center px-5 pb-5">
           <Button
             variant="outline"
-            className="min-h-10 px-6 py-2 text-sm md:text-base border border-gray-300 dark:border-gray-600 rounded-md group-hover:bg-primary group-hover:text-white transition duration-300"
+            className="min-h-10 px-6 py-2 text-base md:text-lg border border-gray-300 dark:border-gray-600 rounded-md group-hover:bg-primary group-hover:text-white transition duration-300"
             aria-label={`View ${project.title} project`}
           >
             See More

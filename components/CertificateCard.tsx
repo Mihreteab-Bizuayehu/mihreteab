@@ -34,13 +34,13 @@ export default function FetchCertificate({
         />
       </div>
       <CardHeader className="px-5 pt-5 text-center">
-        <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">
+        <CardTitle className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">
           {certificate.title}
         </CardTitle>
       </CardHeader>
       <CardContent className="px-5">
         <p
-          className={`text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300 ${clip}`}
+          className={`text-base md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 ${clip}`}
           aria-expanded={clip === ''}
         >
           {certificate.description}
@@ -50,7 +50,7 @@ export default function FetchCertificate({
         <Button
           onClick={() => setClip(clip === '' ? 'line-clamp-2' : '')}
           variant="outline"
-          className="text-sm font-semibold px-4 py-2 rounded-lg border border-primary hover:bg-primary hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:border-gray-700"
+          className="text-base md:text-lg font-semibold px-4 py-2 rounded-lg border border-primary hover:bg-primary hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:border-gray-700"
           aria-label={`Toggle ${certificate.title} description`}
         >
           {clip === '' ? 'Show Less' : 'Read More'}

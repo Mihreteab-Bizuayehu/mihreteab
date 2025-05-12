@@ -44,7 +44,7 @@ export default function Footer () {
           </ul>
         </div>
       </div>
-      <p className="text-sm text-gray-500 py-5 dark:text-gray-300">
+      <p className="text-center  text-gray-500 py-5 dark:text-gray-300">
         &copy; Alrights Reserved{' '}
         {new Intl.DateTimeFormat('en-US', { year: 'numeric' }).format(
           new Date()

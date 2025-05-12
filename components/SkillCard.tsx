@@ -19,14 +19,14 @@ export default function FetchSkill({ skill }: { skill: SkillTypes }) {
       className="group mx-auto w-full max-w-sm md:max-w-md rounded-2xl shadow-lg border border-gray-200 hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 dark:bg-gray-950 dark:border-gray-800"
     >
       <CardHeader>
-        <CardTitle className="text-xl font-bold text-center text-gray-800 dark:text-white">
+        <CardTitle className="text-xl md:text-2xl font-bold text-center text-gray-800 dark:text-white">
           {skill.title}
         </CardTitle>
       </CardHeader>
 
       <CardContent>
         <p
-          className={`text-sm md:text-base leading-relaxed text-gray-700 dark:text-gray-300  ${clip}`}
+          className={`text-base md:text-xl leading-relaxed text-gray-700 dark:text-gray-300  ${clip}`}
           aria-expanded={clip === ''}
         >
           {skill.description}
@@ -39,7 +39,7 @@ export default function FetchSkill({ skill }: { skill: SkillTypes }) {
             setClip(clip === '' ? 'line-clamp-4 md:line-clamp-6' : '')
           }
           variant="outline"
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md 
+          className="flex items-center gap-2 px-4 py-2 text-base md:text-lg font-medium rounded-md 
                  border border-primary text-primary hover:bg-primary hover:text-white 
                  active:scale-95 transition-all duration-200"
           aria-label={`Toggle ${skill.title} description`}

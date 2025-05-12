@@ -49,7 +49,7 @@ export default function ContactForm() {
     <div className="flex items-center justify-center w-full">
       <Card className="w-full max-w-xl dark:bg-gray-900">
         <CardHeader>
-          <CardTitle className="text-center text-2xl">Send Message</CardTitle>
+          <CardTitle className="text-center text-xl sm:text-2xl md:text-3xl">Send Message</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 mx-auto">
@@ -88,7 +88,7 @@ export default function ContactForm() {
             <Button
               type="submit"
               disabled={loading}
-              className="bg-blue-600 text-white py-2 px-4 rounded dark:bg-blue-700 dark:hover:bg-blue-900 transition-colors duration-300"
+              className="bg-blue-600 text-white py-2 px-4 rounded dark:bg-blue-700 dark:hover:bg-blue-900 transition-colors duration-300 text-base  md:text-lg"
             >
               {loading ? 'Sending...' : 'Send'}
             </Button>
