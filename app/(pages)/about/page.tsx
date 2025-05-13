@@ -27,7 +27,7 @@ export default async function About() {
             <h2 className=" text-2xl sm:text-3xl md:text-4xl font-bold">
               I'm Mihreteab Bizuayehu
             </h2>
-            <p className="text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed sm:text-start text-justify">
               I'm a passionate and results-driven Full Stack Developer with a
               BSc Degree in Computer Engineering from Bahir Dar University (July
               19, 2023). I build fast, scalable, and modern web applications
