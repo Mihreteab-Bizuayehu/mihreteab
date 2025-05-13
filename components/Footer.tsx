@@ -7,10 +7,10 @@ import { navItems, socialLinks } from '@/constants/constant'
 export default function Footer () {
   const pathname = usePathname();
   return (
-    <div className=" p-6 md:p-10 text-center">
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-10">
+    <div className=" p-6 md:p-10 flex flex-col justify-center">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-10 w-[80%] mx-auto">
         <nav>
-          <ul className="flex flex-wrap gap-5 text-sm sm:text-base font-medium">
+          <ul className="flex flex-wrap gap-4 text-sm sm:text-base font-medium">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
@@ -29,7 +29,7 @@ export default function Footer () {
         </nav>
 
         <div>
-          <ul className="flex gap-5">
+          <ul className="flex gap-4">
             {socialLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -50,7 +50,7 @@ export default function Footer () {
         </div>
       </div>
 
-      <p className="mt-6 text-sm text-gray-600 dark:text-gray-300">
+      <p className="mt-6 text-sm text-gray-600 dark:text-gray-300 self-center">
         &copy;{' '}
         {new Intl.DateTimeFormat('en-US', { year: 'numeric' }).format(
           new Date()
