@@ -99,7 +99,7 @@ export const socialLinks = [
   {
     href: 'https://github.com/Mihreteab-Bizuayehu',
     icon: Github,
-    color: '#333333',
+    color: '#555555',
   },
   {
     href: 'https://www.linkedin.com/in/mihreteab-bizuayehu',

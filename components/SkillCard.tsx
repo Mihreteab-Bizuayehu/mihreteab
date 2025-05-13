@@ -26,7 +26,7 @@ export default function FetchSkill({ skill }: { skill: SkillTypes }) {
 
       <CardContent>
         <p
-          className={`text-base md:text-xl leading-relaxed text-gray-700 dark:text-gray-300  ${clip}`}
+          className={`text-base md:text-xl leading-relaxed text-gray-700 dark:text-gray-200  ${clip}`}
           aria-expanded={clip === ''}
         >
           {skill.description}

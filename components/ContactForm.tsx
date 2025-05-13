@@ -49,7 +49,9 @@ export default function ContactForm() {
     <div className="flex items-center justify-center w-full">
       <Card className="w-full max-w-xl dark:bg-gray-900">
         <CardHeader>
-          <CardTitle className="text-center text-xl sm:text-2xl md:text-3xl">Send Message</CardTitle>
+          <CardTitle className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">
+            Send Message
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 mx-auto">

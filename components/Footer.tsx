@@ -7,19 +7,19 @@ import { navItems, socialLinks } from '@/constants/constant'
 export default function Footer () {
   const pathname = usePathname();
   return (
-    <div className="p-4 text-center ">
-      <div className="flex sm:flex-row flex-col justify-between items-center sm:px-50 py-5 gap-10">
+    <div className=" p-6 md:p-10 text-center">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-10">
         <nav>
-          <ul className="flex gap-4">
+          <ul className="flex flex-wrap gap-5 text-sm sm:text-base font-medium">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
                   className={`${
                     pathname === item.href
-                      ? 'text-blue-500 border-b-2 border-blue-500'
-                      : ''
-                  } hover:text-blue-500 hover:border-b-2 hover:border-blue-500`}
+                      ? 'text-blue-600 border-b-2 border-blue-600'
+                      : 'text-gray-700 dark:text-gray-200'
+                  } hover:text-blue-600 transition-all duration-200`}
                 >
                   {item.label}
                 </Link>
@@ -27,14 +27,19 @@ export default function Footer () {
             ))}
           </ul>
         </nav>
-        <div className="flex ">
-          <ul className="flex gap-4">
+
+        <div>
+          <ul className="flex gap-5">
             {socialLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} target="_blank">
+                <Link
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <link.icon
-                    className="font-bold"
-                    size={20}
+                    className="hover:scale-110 transition-transform duration-200"
+                    size={22}
                     color={link.color}
                     strokeWidth={2}
                   />
@@ -44,12 +49,15 @@ export default function Footer () {
           </ul>
         </div>
       </div>
-      <p className="text-center  text-gray-500 py-5 dark:text-gray-300">
-        &copy; Alrights Reserved{' '}
+
+      <p className="mt-6 text-sm text-gray-600 dark:text-gray-300">
+        &copy;{' '}
         {new Intl.DateTimeFormat('en-US', { year: 'numeric' }).format(
           new Date()
         )}{' '}
-        Created By Mihreteab
+        — Created by{' '}
+        <span className="font-semibold text-blue-600">Mihreteab</span>. All
+        rights reserved.
       </p>
     </div>
   );

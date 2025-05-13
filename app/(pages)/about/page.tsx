@@ -15,7 +15,7 @@ export default async function About() {
   return (
     <div className="flex flex-col justify-center w-[90%] mx-auto items-center">
       <div className="w-full flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white py-10 px-4 sm:px-8 lg:px-16 lg:py-10 ">
-        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-center text-gray-700 dark:text-gray-300">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-center text-gray-700 dark:text-gray-200">
           Know about me
         </h3>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center self-center mb-10 border-b-4 border-blue-500 inline-block">
@@ -27,7 +27,7 @@ export default async function About() {
             <h2 className=" text-2xl sm:text-3xl md:text-4xl font-bold">
               I'm Mihreteab Bizuayehu
             </h2>
-            <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed text-justify">
               I'm a passionate and results-driven Full Stack Developer with a
               BSc Degree in Computer Engineering from Bahir Dar University (July
               19, 2023). I build fast, scalable, and modern web applications
@@ -53,15 +53,15 @@ export default async function About() {
               />
             </div>
 
-            <ul className="w-full flex flex-col gap-4">
+            <ul className="w-full flex flex-col gap-3">
               {user.map((item, index) => (
                 <li
                   key={index}
-                  className="flex items-center gap-4 text-base sm:text-lg md:text-xl font-medium hover:text-blue-500 transition-all"
+                  className="flex items-center gap-3 text-base sm:text-lg md:text-xl font-medium hover:text-blue-500 transition-all duration-300"
                 >
                   <item.icon color={item.color} size={item.size} />
-                  <span>{item.label}</span>
-                  <span className=" text-right">{item.content}</span>
+                  <span className="text-gray-700 dark:text-gray-200">{item.label}</span>
+                  <span className=" text-right text-gray-700 dark:text-gray-200">{item.content}</span>
                 </li>
               ))}
             </ul>
@@ -71,7 +71,7 @@ export default async function About() {
 
       <div className="bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-gray-950 px-5 sm:px-12 py-10 sm:py-20 w-full dark:text-white transition-all duration-500">
         <section className="flex flex-col items-center w-full">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-3">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-3">
             What I'm good at
           </h3>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-10 border-b-4 border-indigo-500 pb-2">
@@ -86,7 +86,7 @@ export default async function About() {
                 {iconsConfig.programmingLanguages.map((item, index) => (
                   <li
                     key={index}
-                    className=" px-3 py-2 bg-gray-200 rounded-md dark:bg-gray-700 flex items-center justify-start gap-2 text-base sm:text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+                    className=" px-3 py-2 bg-gray-200 rounded-md dark:bg-gray-700 flex items-center justify-start gap-2 text-base sm:text-lg md:text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
                   >
                     <span className="text-xl md:text-2xl">{item.icon}</span>
                     {item.label}
@@ -103,7 +103,7 @@ export default async function About() {
                 {iconsConfig.webTechnologies.map((item, index) => (
                   <li
                     key={index}
-                    className=" px-3 py-2 bg-gray-200 rounded-md dark:bg-gray-700 flex items-center justify-start gap-2 text-base sm:text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+                    className=" px-3 py-2 bg-gray-200 rounded-md dark:bg-gray-700 flex items-center justify-start gap-2 text-base sm:text-lg md:text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
                   >
                     <span className="text-xl md:text-2xl">{item.icon}</span>
                     {item.label}
@@ -122,7 +122,7 @@ export default async function About() {
               📜 Certificates
             </h3>
 
-            <h4 className="text-gray-500 my-4 dark:text-gray-300 text-base sm:text-lg md:text-xl">
+            <h4 className="text-gray-700 my-4 dark:text-gray-200 text-base sm:text-lg md:text-xl">
               Here are some of the certificates I've earned over the years.
             </h4>
 
@@ -135,7 +135,7 @@ export default async function About() {
                 ))}
               </div>
             ) : (
-              <p className="text-gray-500 mt-6 dark:text-gray-400 text-base sm:text-lg md:text-xl">
+              <p className="text-gray-700 mt-6 dark:text-gray-200 text-base sm:text-lg md:text-xl">
                 No certificates available at the moment.
               </p>
             )}

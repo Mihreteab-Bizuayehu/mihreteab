@@ -18,7 +18,7 @@ if (!project || 'error' in project) {
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight md:text-4xl mb-4">
           Project Not Found
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md text-base sm:text-lg md:text-xl ">
+        <p className="text-gray-700 dark:text-gray-200 mb-6 max-w-md text-base sm:text-lg md:text-xl ">
           The project you’re looking for doesn’t exist or has been removed.
         </p>
         <Link
@@ -59,7 +59,7 @@ if (!project || 'error' in project) {
             </div>
 
             <div className="w-full text-left space-y-4">
-              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed">
                 {project.description}
               </p>
 

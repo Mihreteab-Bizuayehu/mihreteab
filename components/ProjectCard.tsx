@@ -38,7 +38,7 @@ export default function FetchProject({ project }: { project: ProjectTypes }) {
           </CardTitle>
         </CardHeader>
         <CardContent className="px-5 pb-3">
-          <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 line-clamp-3 leading-relaxed">
+          <p className="text-base md:text-xl text-gray-700 dark:text-gray-200 line-clamp-3 leading-relaxed">
             {project.description}
           </p>
         </CardContent>

@@ -28,7 +28,7 @@ export default function Navbar() {
     <header className="border-b">
       <nav className="flex justify-between items-center p-4 md:px-20 md:py-5">
         <Link href="/" className="hover:opacity-80 transition-opacity">
-          <h1 className="font-extrabold text-2xl md:text-3xl">
+          <h1 className="font-extrabold text-2xl md:text-3xl text-gray-700 dark:text-gray-200">
             Mera<span className="text-blue-500">Bizu</span>
           </h1>
         </Link>
@@ -42,7 +42,7 @@ export default function Navbar() {
                   className={`px-1 py-2 transition-colors text-base md:text-lg ${
                     pathname === item.href
                       ? 'text-blue-500 border-b-2 border-blue-500 font-medium'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-500'
+                      : 'text-gray-700 dark:text-gray-200 hover:text-blue-500 transition-colors'
                   }`}
                 >
                   {item.label}
@@ -52,7 +52,7 @@ export default function Navbar() {
           </ul>
           <div className="hidden md:flex items-center gap-5 text-base md:text-lg">
             <SignedOut>
-              <SignInButton/>
+              <SignInButton />
             </SignedOut>
             <SignedIn>
               {role === 'marketing_admin' && (
@@ -61,7 +61,7 @@ export default function Navbar() {
                   className={`px-1 py-2 transition-colors ${
                     pathname === '/dashboard'
                       ? 'text-blue-500 border-b-2 border-blue-500 font-medium'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-500'
+                      : 'text-gray-700 dark:text-gray-200 hover:text-blue-500'
                   }`}
                 >
                   Dashboard
@@ -89,7 +89,7 @@ export default function Navbar() {
                         className={`block px-4 py-3 rounded-md transition-colors ${
                           pathname === item.href
                             ? 'bg-blue-50 text-blue-600 font-medium'
-                            : 'hover:bg-gray-100 dark:hover:bg-gray-800'
+                            : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200'
                         }`}
                         onClick={() => setOpen(false)}
                       >
@@ -110,7 +110,7 @@ export default function Navbar() {
                         className={`block py-3 rounded-md transition-colors ${
                           pathname === '/dashboard'
                             ? 'bg-blue-50 text-blue-600 font-medium'
-                            : 'hover:bg-gray-100 dark:hover:bg-gray-800'
+                            : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200'
                         }`}
                         onClick={() => setOpen(false)}
                       >
