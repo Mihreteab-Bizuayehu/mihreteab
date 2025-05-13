@@ -70,7 +70,7 @@ export const navItems = [
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
   {
-    href: 'https://shorturl.at/OqAmb',
+    href: 'https://shorturl.at/cvIKD',
     label: 'Resume',
   },
   { href: '/blog', label: 'Blog' },
