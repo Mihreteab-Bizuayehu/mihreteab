@@ -27,15 +27,15 @@ export default async function About() {
             <h2 className=" text-2xl sm:text-3xl md:text-4xl font-bold">
               I'm Mihreteab Bizuayehu
             </h2>
-            <p className="text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed text-justify">
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
               I'm a passionate and results-driven Full Stack Developer with a
               BSc Degree in Computer Engineering from Bahir Dar University (July
               19, 2023). I build fast, scalable, and modern web applications
-              with a strong focus on seamless UX. I specialize in the{' '}
+              with a strong focus on seamless UX. <br/>I specialize in the{' '}
               <strong>MERN stack</strong> and <strong>Next.js</strong>, with
               expertise in frontend technologies such as HTML5, CSS3,
               Bootstrap5, Tailwind CSS, Shadcn UI, DaisyUI, and React/React
-              Native. On the backend, I work with Node.js, Express.js, MongoDB,
+              Native.<br/> On the backend, I work with Node.js, Express.js, MongoDB,
               MySQL, PostgreSQL, and Prisma ORM. I also write in C++, Java,
               TypeScript, and Python. My goal is to craft visually appealing and
               high-performing digital solutions.
@@ -60,8 +60,12 @@ export default async function About() {
                   className="flex items-center gap-3 text-base sm:text-lg md:text-xl font-medium hover:text-blue-500 transition-all duration-300"
                 >
                   <item.icon color={item.color} size={item.size} />
-                  <span className="text-gray-700 dark:text-gray-200">{item.label}</span>
-                  <span className=" text-right text-gray-700 dark:text-gray-200">{item.content}</span>
+                  <span className="flex items-center gap-2 text-base sm:text-lg md:text-xl font-medium text-gray-700 dark:text-gray-200">
+                    {item.label}
+                  </span>
+                  <span className=" text-base sm:text-lg md:text-xl text-center sm:text-left font-medium text-gray-700 dark:text-gray-200">
+                    {item.content}
+                  </span>
                 </li>
               ))}
             </ul>
